@@ -11,10 +11,10 @@ Persons.schema = new SimpleSchema({
     type: String,
     optional: false
   },
-  dob: {
-    // type: Date,
-    optional: true
-  },
+  // dob: {
+  //   // type: Date,
+  //   optional: true
+  // },
   bio: {
     type: String,
     optional: false

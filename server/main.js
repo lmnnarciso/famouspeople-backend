@@ -2,7 +2,6 @@ import { Meteor } from "meteor/meteor";
 import { Mongo } from "meteor/mongo";
 import { Restivus } from "meteor/nimble:restivus";
 import { Persons } from "../imports/api/persons";
-import { SimpleRest } from "meteor/simple:rest";
 
 if (Meteor.isServer) {
   // const Items = new Mongo.Collection('items');
@@ -79,6 +78,23 @@ if (Meteor.isServer) {
       }
     }
   });
+
+  Api.addRoute(
+    "/persons/:id",
+    { authRequired: false },
+    {
+      get: function() {
+        return "test get for /api/persons/:id";
+        // return Persons.find(this.urlParams.id)
+      },
+      put: function() {
+        console.log("test put rest for /api/persons/:id");
+      },
+      delete: function() {
+        console.log("test delete rest for /api/persons/:id");
+      }
+    }
+  );
 
   // Api.addRoute('/persons', {authRequired: false}, {
   //   get: function () {
